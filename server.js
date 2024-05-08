@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import studentRoutes from './Routes/students.js'; 
+import searchRoutes from './Routes/search.js';
 
 dotenv.config();
 
@@ -18,5 +19,6 @@ mongoose.connect(process.env.DB_URL)
 const PORT = process.env.PORT || 5000;
 
 app.use('/api/students', studentRoutes); 
+app.use('/api/search', searchRoutes); 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
